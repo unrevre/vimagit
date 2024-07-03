@@ -19,38 +19,29 @@ endif
 let g:vimagit_path = fnameescape(resolve(expand('<sfile>:p:h')))
 execute 'source ' . g:vimagit_path . '/../common/magit_common.vim'
 
-" these mappings are broadly applied, for all vim buffers
-let g:magit_show_magit_mapping     = get(g:, 'magit_show_magit_mapping',        '<leader>M' )
+" options
+let g:magit_update_modes                = ['normal', 'fast']
 
 " user options
 " default display: vertical split.
-let g:magit_show_magit_display     = get(g:, 'magit_show_magit_display',       'v')
-let g:magit_enabled                = get(g:, 'magit_enabled',                   1)
-let g:magit_show_help              = get(g:, 'magit_show_help',                 0)
-let g:magit_default_show_all_files = get(g:, 'magit_default_show_all_files',    1)
-let g:magit_default_fold_level     = get(g:, 'magit_default_fold_level',        1)
-let g:magit_auto_close             = get(g:, 'magit_auto_close',                0)
-let g:magit_auto_foldopen            = get(g:, 'magit_auto_foldopen',               1)
-let g:magit_default_sections       = get(g:, 'magit_default_sections',          ['info', 'global_help', 'commit', 'staged', 'unstaged'])
-let g:magit_discard_untracked_do_delete = get(g:, 'magit_discard_untracked_do_delete',        0)
-
-let g:magit_refresh_gutter         = get(g:, 'magit_refresh_gutter'   ,         1)
-
-let g:magit_update_mode           = get(g:, 'magit_update_mode',      'normal')
-let g:magit_update_modes = ['normal', 'fast']
+let g:magit_show_magit_display          = get(g:, 'magit_show_magit_display',          'v')
+let g:magit_enabled                     = get(g:, 'magit_enabled',                     1)
+let g:magit_show_help                   = get(g:, 'magit_show_help',                   0)
+let g:magit_default_show_all_files      = get(g:, 'magit_default_show_all_files',      1)
+let g:magit_default_fold_level          = get(g:, 'magit_default_fold_level',          1)
+let g:magit_auto_close                  = get(g:, 'magit_auto_close',                  0)
+let g:magit_auto_foldopen               = get(g:, 'magit_auto_foldopen',               1)
+let g:magit_default_sections            = get(g:, 'magit_default_sections',            ['info', 'global_help', 'commit', 'staged', 'unstaged'])
+let g:magit_discard_untracked_do_delete = get(g:, 'magit_discard_untracked_do_delete', 0)
+let g:magit_refresh_gutter              = get(g:, 'magit_refresh_gutter',              1)
+let g:magit_update_mode                 = get(g:, 'magit_update_mode',                 'normal')
 
 " Should deprecate the following
-let g:magit_refresh_gitgutter      = get(g:, 'magit_refresh_gitgutter',         0)
-
-let g:magit_commit_title_limit     = get(g:, 'magit_commit_title_limit',        50)
-
-let g:magit_scrolloff              = get(g:, 'magit_scrolloff',                 3)
-
-let g:magit_warning_max_lines      = get(g:, 'magit_warning_max_lines',         10000)
-
-let g:magit_git_cmd                = get(g:, 'magit_git_cmd'          ,         "git")
-
-execute "nnoremap <silent> " . g:magit_show_magit_mapping . " :call magit#show_magit('" . g:magit_show_magit_display . "')<cr>"
+let g:magit_refresh_gitgutter           = get(g:, 'magit_refresh_gitgutter',  0)
+let g:magit_commit_title_limit          = get(g:, 'magit_commit_title_limit', 50)
+let g:magit_scrolloff                   = get(g:, 'magit_scrolloff',          3)
+let g:magit_warning_max_lines           = get(g:, 'magit_warning_max_lines',  10000)
+let g:magit_git_cmd                     = get(g:, 'magit_git_cmd',            "git")
 
 if (g:magit_refresh_gutter == 1 || g:magit_refresh_gitgutter == 1)
   autocmd User VimagitUpdateFile
@@ -61,6 +52,8 @@ if (g:magit_refresh_gutter == 1 || g:magit_refresh_gitgutter == 1)
     \ endif
 endif
 " }}}
+
+" Internal functions {{{
 
 " s:mg_cut_str cut a string given a limit size
 " param[in] str string to cut
