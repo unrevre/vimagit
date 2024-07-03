@@ -147,8 +147,8 @@ It takes 3 parameters:
   * orientation (mandatory): it can be
       - 'v', curent window is split vertically, and magit is displayed in new
         buffer
-      - 'h', curent window is split horizontally, and magit is displayed in
-        new buffer
+      - 'x', curent window is split horizontally, and magit is displayed in new
+        buffer
       - 'c', magit is displayed in current buffer
   * show_all_files: define how file diffs are shown by default for this session
     (see |vimagit-g:magit_default_show_all_files|)
@@ -156,11 +156,7 @@ It takes 3 parameters:
     (see |vimagit-g:magit_default_fold_level|)
 
                                                                         *:Magit*
-  :Magit     open magit buffer in a vertical split (see |magit#show_magit()|)
-
-                                                                    *:MagitOnly*
-  :MagitOnly open magit buffer in current window (see |magit#show_magit()|)
-You can create a bash alias like magit="vim -c MagitOnly"
+  :Magit     open magit buffer (see |magit#show_magit()|)
 
 
 MAPPINGS                                                      *vimagit-mappings*
@@ -168,28 +164,12 @@ MAPPINGS                                                      *vimagit-mappings*
 For each mapping, user can redefine the behavior with its own mapping. Each
 variable is described below as           *vimagit-g:magit_nameofmapping_mapping*
 
-For example, to redefine the <leader>M mapping to <leader>g, add this line in 
-your |vimrc|:
-let g:magit_show_magit_mapping='<leader>g'
-
 Mapping update                                          *vimagit-mapping-update*
 --------------
 
 Since vimagit 1.7, jump mappings have changed:
    Jump next hunk : N -> <C-n>
    Jump prev hunk : P -> <C-p>
-
-(Previous behaviour can be restored by redefining the following variables:
-let g:magit_jump_next_hunk='N'
-let g:magit_jump_prev_hunk='P')
-
-Global mappings
----------------
-Following mappings are broadly set, and are applied in all vim buffers.
-
-                                      *vimagit-<leader>M*
-                                      *vimagit-g:magit_show_magit_mapping*
- <leader>M  Open Magit buffer
 
 Local mappings
 --------------
@@ -468,7 +448,6 @@ Default value is 1.
 let g:magit_enabled=[01]
 
                                                        *vimagit-g:magit_git_cmd*
-
 Git command, may be simply simply "git" if git is in your path. Defualt is "git"
 let g:magit_git_cmd="git"
 
@@ -477,7 +456,6 @@ To disable chatty inline help in magit buffer (default 1)
 let g:magit_show_help=[01]
 
                                             *vimagit-g:magit_commit_title_limit*
-
 Text is grayed if first line of commit message exceed this number of character
 (default 50)
 
