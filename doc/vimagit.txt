@@ -429,9 +429,6 @@ buffer each time vimagit update the git status of this file.
     \ 	call gitgutter#process_buffer(bufnr(g:magit_last_updated_buffer), 0) |
     \ endif
 <
-The following example is already embeded in vimagit plugin (see
-|vimagit-g:magit_refresh_gitgutter|), then you shouldn't add this particular
-example to your vimrc.
 
 ===============================================================================
 5. OPTIONS                                                     *vimagit-options*
@@ -514,13 +511,6 @@ let g:magit_warning_max_lines=val
 When set to 1, discard an untracked file will indeed delete this file.
 Default value is 0.
 let g:magit_discard_untracked_do_delete=[01]
-
-                                             *vimagit-g:magit_refresh_gitgutter*
-When set to 1, and if vim-gitgutter plugin is installed, gitgutter signs will
-be updated each time magit update the git status of a file (i.e. when a file
-or a hunk is staged/unstaged).
-Default value is 1.
-let g:magit_refresh_gitgutter=[01]
 
                                                     *vimagit-g:magit_auto_close*
 When set to 1, magit buffer automatically closes after a commit if there is

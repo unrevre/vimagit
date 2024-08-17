@@ -28,7 +28,6 @@ This workflow is 100% inspired from magnificent emacs [Magit][1] plugin.
 * [x] Write the commit message in the same buffer.
 * [x] From a hunk in magit buffer, jump to the file at the diff position.
 * [x] 100% VimL plugin, no external dependency (except git of course).
-* [x] Enhanced by external plugins: [vim-gitgutter][2] [vim-airline][8]
 * [x] Stable. All features are tested in continuous integration.
 
 More to come:
@@ -43,7 +42,6 @@ More to come:
 > Why should I use vimagit, there are already plethora git plugins for vim?
 
 * fugitive is a very complete plugin, with a lot of functions. I use it for years, and it is a fundamental tool in my workflow. But visualize your changes and staged them in broad number of files is really a pain.
-* [vim-gitgutter][2] is very well integrated into vim, but without the ability to commit stages, it stays an informational plugin.
 
 ## TL;DR
 
@@ -427,10 +425,6 @@ buffer each time vimagit update the git status of this file.
     \ endif
 ```
 
-The following example is already embeded in vimagit plugin (see
-[g:magit_refresh_gitgutter](gmagit_refresh_gitgutter)), then you shouldn't add this particular
-example to your vimrc.
-
 ### Options
 
 User can define in its prefered vimrc some options.
@@ -514,14 +508,6 @@ When set to 1, discard an untracked file will indeed delete this file.
 Default value is 0.
 > let g:magit_discard_untracked_do_delete=[01]
 
-#### g:magit_refresh_gitgutter
-
-When set to 1, and if [vim-gitgutter][2] plugin is installed, gitgutter signs will
-be updated each time magit update the git status of a file (i.e. when a file
-or a hunk is staged/unstaged).
-Default value is 1.
-> let g:magit_refresh_gitgutter=[01]
-
 #### g:magit_auto_close
 
 When set to 1, magit buffer automatically closes after a commit if there is
@@ -559,7 +545,6 @@ Pull requests are very welcomed. Some good practice:
 ## Credits
 
 * Obviously, big credit to [Magit][1]. For the moment, I am only copying their stage workflow, but I won't stop there! They have a lot of other good ideas.
-* Sign handling is based on [vim-gitgutter][2] work.
 * Command line completion is based on [hypergit][3] work.
 
 ## License
