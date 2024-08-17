@@ -33,24 +33,13 @@ let g:magit_auto_close                  = get(g:, 'magit_auto_close',           
 let g:magit_auto_foldopen               = get(g:, 'magit_auto_foldopen',               1)
 let g:magit_default_sections            = get(g:, 'magit_default_sections',            ['info', 'global_help', 'commit', 'staged', 'unstaged'])
 let g:magit_discard_untracked_do_delete = get(g:, 'magit_discard_untracked_do_delete', 0)
-let g:magit_refresh_gutter              = get(g:, 'magit_refresh_gutter',              1)
 let g:magit_update_mode                 = get(g:, 'magit_update_mode',                 'normal')
 
 " Should deprecate the following
-let g:magit_refresh_gitgutter           = get(g:, 'magit_refresh_gitgutter',  0)
 let g:magit_commit_title_limit          = get(g:, 'magit_commit_title_limit', 50)
 let g:magit_scrolloff                   = get(g:, 'magit_scrolloff',          3)
 let g:magit_warning_max_lines           = get(g:, 'magit_warning_max_lines',  10000)
 let g:magit_git_cmd                     = get(g:, 'magit_git_cmd',            "git")
-
-if (g:magit_refresh_gutter == 1 || g:magit_refresh_gitgutter == 1)
-  autocmd User VimagitUpdateFile
-    \ if ( exists("*gitgutter#process_buffer") ) |
-    \   call gitgutter#process_buffer(bufnr(g:magit_last_updated_buffer), 0) |
-    \ elseif ( exists("*sy#util#refresh_windows") ) |
-    \   call sy#util#refresh_windows() |
-    \ endif
-endif
 " }}}
 
 " Internal functions {{{
